@@ -1,0 +1,27 @@
+#! /usr/bin/env bash
+
+set -e
+
+if [ -z ${VIRTUAL_ENV+x} ]; then
+  echo 'Setting up a virtual env...'
+  pipenv --python 3
+else
+  echo 'There is already an active virtual env, skipping initialization...'
+fi
+
+
+if [ ! -f .envrc ]; then
+  echo 'Creating .envrc...'
+  touch .envrc
+  echo 'export FLASK_ENV=development'$'\n''layout pipenv' > .envrc
+else
+  echo 'A .envrc already exists, not changing...'
+fi
+
+if [ ! -f .env.local ]; then
+  echo 'Creating .env.local...'
+  touch .env.local
+  cp .env.sample .env.local
+else
+  echo 'A .env.local already exists, not changing...'
+fi
