@@ -6,11 +6,12 @@ This is a flask template for engineers coming from a Rails background.
 Features I Want
 ---
 
-- Easy project setup script (bin/setup)
-- Environment loading from .env, and .env.local (or something equally easy to
-  maintain)
-- Direnv integration
-- Blueprints for a large app design (eventually)
-- Postgres/SqlAlchemy support
-- Pytest support
-- Easy way to write scripts
+- [x] Easy project setup script (bin/setup)
+- [x] Environment loading from .env, and .env.local (or something equally easy
+      to maintain)
+- [x] Direnv integration
+- [x] Blueprints for a large app design (eventually)
+- [x] Postgres/SQlAlchemy support
+- [x] Easy migrations
+- [x] Pytest support
+- [x] Easy way to write scripts

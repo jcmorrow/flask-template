@@ -11,6 +11,8 @@ pytest-flask = "*"
 flask = "*"
 flask-sqlalchemy = "*"
 python-dotenv = "*"
+flask-migrate = "*"
+"psycopg2-binary" = "*"
 "psycopg2" = "*"
 
 [requires]

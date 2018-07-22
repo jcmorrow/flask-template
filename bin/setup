@@ -9,11 +9,11 @@ else
   echo 'There is already an active virtual env, skipping initialization...'
 fi
 
+pipenv install
 
 if [ ! -f .envrc ]; then
-  echo 'Creating .envrc...'
-  touch .envrc
-  echo 'export FLASK_ENV=development'$'\n''layout pipenv' > .envrc
+  echo 'Copying .envrc.sample to .envrc...'
+  cp .envrc.sample .envrc
 else
   echo 'A .envrc already exists, not changing...'
 fi
@@ -24,4 +24,16 @@ if [ ! -f .env.local ]; then
   cp .env.sample .env.local
 else
   echo 'A .env.local already exists, not changing...'
+fi
+
+if psql --list | grep -q template_development; then
+  echo 'A database already exists with the name "template_development". Skipping...'
+else
+  createdb template_development
+fi
+
+if psql --list | grep -q template_test; then
+  echo 'A database already exists with the name "template_test". Skipping...'
+else
+  createdb template_test
 fi
